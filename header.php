@@ -24,7 +24,14 @@
 	<a class="skip-link screen-reader-text" href="#primary"><?php esc_html_e( 'Skip to content', 'audit-ux' ); ?></a>
 
 	<header id="masthead" class="site-header">
-		<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php the_custom_logo(); ?></a></h1>
+		<div class="site-title">
+      <?php the_custom_logo(); ?>
+      <h1 class="screen-reader-text">
+        <a title="Retour à la page d'accueil" href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
+          <?php bloginfo( 'name' ); ?>
+        </a>
+      </h1>
+    </div>
 		<nav id="site-contact" class="contact">
 			<?php
 			wp_nav_menu(
@@ -46,4 +53,5 @@
 			);
 			?>
 		</nav><!-- #site-navigation -->
+    <?php breadcrumbs(); ?><!-- breadcrumbs #crumbs -->
 	</header><!-- #masthead -->
