@@ -50,6 +50,7 @@
           array(
             'theme_location' => 'menu-1',
             'menu_id'        => 'primary-menu',
+            'walker'		 => new Menu_With_Description
           )
         );
         ?>

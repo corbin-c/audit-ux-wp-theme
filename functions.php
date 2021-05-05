@@ -183,4 +183,40 @@ require get_template_directory() . '/inc/breadcrumbs.php';
 if ( defined( 'JETPACK__VERSION' ) ) {
 	require get_template_directory() . '/inc/jetpack.php';
 }
-
+/**
+ * Extends Walker_Nav_Menu to include categories full title &
+ * description for top-level categories and wrap it inside a container element
+ */
+class Menu_With_Description extends Walker_Nav_Menu {
+	function top_lvl_description($item, $depth) {
+		if (depth > 0) {
+			return false;
+		}
+		$category_name = get_category($item->object_id)->name;
+		$category_description = $item->post_content;
+		if (empty($category_name)
+		|| empty($category_description)
+		|| is_null($category_name)
+		|| ($category_description == " ")
+		) {
+			return false;
+		}
+		return true;
+	}
+    function start_el(&$output, $item, $depth, $args) {
+        parent::start_el($output, $item, $depth, $args);
+        if ($this->top_lvl_description($item, $depth)) {
+			$output .= '<div><h2 class="menu-item-title">';
+			$output .= $category_name;
+			$output .= '</h2><p class="menu-item-description">';
+			$output .= $category_description;
+			$output .= '</p>';
+		}
+    }
+    function end_el(&$output, $item, $depth, $args) {
+		if ($this->top_lvl_description($item, $depth)) {
+			$output .= '</div>';
+		}
+        parent::end_el($output, $item, $depth, $args);
+	}
+}
