@@ -190,7 +190,7 @@ if ( defined( 'JETPACK__VERSION' ) ) {
 class Menu_With_Description extends Walker_Nav_Menu {
 	function top_lvl_description($item, $depth) {
 		if (depth > 0) {
-			return false;
+			return array();
 		}
 		$category_name = get_category($item->object_id)->name;
 		$category_description = $item->post_content;
@@ -199,22 +199,26 @@ class Menu_With_Description extends Walker_Nav_Menu {
 		|| is_null($category_name)
 		|| ($category_description == " ")
 		) {
-			return false;
+			return array();
 		}
-		return true;
+		return array(
+			"name" => $category_name,
+			"description" => $category_description
+		);
 	}
     function start_el(&$output, $item, $depth, $args) {
         parent::start_el($output, $item, $depth, $args);
-        if ($this->top_lvl_description($item, $depth)) {
+        $full_description = $this->top_lvl_description($item, $depth);
+        if (!empty($full_description)) {
 			$output .= '<div><h2 class="menu-item-title">';
-			$output .= $category_name;
+			$output .= $full_description["name"];
 			$output .= '</h2><p class="menu-item-description">';
-			$output .= $category_description;
+			$output .= $full_description["description"];
 			$output .= '</p>';
 		}
     }
     function end_el(&$output, $item, $depth, $args) {
-		if ($this->top_lvl_description($item, $depth)) {
+		if (!empty($full_description)) {
 			$output .= '</div>';
 		}
         parent::end_el($output, $item, $depth, $args);
