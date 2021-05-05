@@ -1,0 +1,26 @@
+#masthead {
+  height: 90px;
+  display: flex;
+  align-items: center;
+}
+#mastead .site-title {
+  margin: 0;
+  width: 36.8%;
+  flex: 1 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#site-contact {
+  order: 3;
+}
+#contact-menu {
+  display: flex;
+  list-style-type: none;
+  justify-content: space-evenly;
+  margin: 0;
+  padding: 0;
+}
+#mastead img {
+  height: 39.1px;
+}
