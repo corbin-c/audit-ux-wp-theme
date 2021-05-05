@@ -1,12 +1,13 @@
 #masthead {
+  height: 135px;
+}
+.site-header {
   height: 90px;
   display: flex;
   align-items: center;
 }
-#mastead .site-title {
-  margin: 0;
-  width: 36.8%;
-  flex: 1 0 auto;
+.site-title {
+  width: 18.4vw;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -18,9 +19,25 @@
   display: flex;
   list-style-type: none;
   justify-content: space-evenly;
-  margin: 0;
-  padding: 0;
 }
-#mastead img {
-  height: 39.1px;
+.custom-logo {
+  max-height: 39.1px;
+  width: auto;
+}
+#site-navigation {
+  flex: 1 0 auto;
+}
+#site-navigation li {
+  display: inline-block;
+}
+#crumbs {
+  order: 4;
+  width: 100%;
+  flex: 1 0 auto;
+  display: flex;
+  align-items: center;
+  list-style-type: none;
+  padding-left: 18.4vw;
+  height: 45px;
+  background: var(--beige);
 }
