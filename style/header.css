@@ -30,14 +30,16 @@
 #site-navigation li {
   display: inline-block;
 }
-#crumbs {
-  order: 4;
-  width: 100%;
-  flex: 1 0 auto;
-  display: flex;
-  align-items: center;
+#site-navigation ul {
+  display: none;
   list-style-type: none;
-  padding-left: 18.4vw;
-  height: 45px;
-  background: var(--beige);
+}
+#site-navigation > div > ul {
+  display: block;
+}
+#site-navigation > div > ul > li {
+  margin-left: 61px;
+}
+#site-navigation > div > ul > li:first-child {
+  margin-left: 0px;
 }
