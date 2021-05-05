@@ -39,7 +39,7 @@ function breadcrumbs() {
   }
   global $post;
   $breadcrumbs = '<ol id="crumbs" itemscope itemtype="http://schema.org/BreadcrumbList">'; /* use microdata to improve machine readability */
-  $breadcrumbs .= '<li itemprop="itemListElement" itemtype="http://schema.org/ListItem"><a title="Retour à l’accueil" href="' . esc_url(home_url( '/' )) . '">Accueil</a><meta itemprop="name" content="' . get_bloginfo( 'name' ) . '" /><meta itemprop="position" content="1" /></li>';
+  $breadcrumbs .= '<li itemprop="itemListElement" itemtype="http://schema.org/ListItem"><a itemprop="item" title="Retour à l’accueil" href="' . esc_url(home_url( '/' )) . '">Accueil</a><meta itemprop="name" content="' . get_bloginfo( 'name' ) . '" /><meta itemprop="position" content="1" /></li>';
   $category = get_the_category($post->ID);
   if (!empty($category)) { /* check if the current post has a parent category */
     $category = $category[0];
@@ -47,9 +47,9 @@ function breadcrumbs() {
     if (empty($category_name)) {
       $category_name = $category->name;
     }
-    $breadcrumbs .= '<li itemprop="itemListElement" itemtype="http://schema.org/ListItem"><a title="Accéder au contenu de la catégorie : ' . $category->name . '" href="' . esc_url(get_category_link($category->term_id)) . '">' . $category_name . '</a><meta itemprop="name" content="' . $category_name . '" /><meta itemprop="position" content="2" /></li>';
+    $breadcrumbs .= '<li itemprop="itemListElement" itemtype="http://schema.org/ListItem"><a itemprop="item" title="Accéder au contenu de la catégorie : ' . $category->name . '" href="' . esc_url(get_category_link($category->term_id)) . '">' . $category_name . '</a><meta itemprop="name" content="' . $category_name . '" /><meta itemprop="position" content="2" /></li>';
   }
-  $breadcrumbs .= '<li itemprop="itemListElement" class="current" itemtype="http://schema.org/ListItem">' . get_item_name_in_menu("menu-1",$post->ID) . '<meta itemprop="name" content="' . $post->post_title . '" /><meta itemprop="position" content="3" /></li>';
+  $breadcrumbs .= '<li itemprop="itemListElement" class="current" itemtype="http://schema.org/ListItem">' . get_item_name_in_menu("menu-1",$post->ID) . '<meta itemprop="item" content="' . $post->guid . '" /><meta itemprop="name" content="' . $post->post_title . '" /><meta itemprop="position" content="3" /></li>';
   $breadcrumbs .= '</ol>';
   echo $breadcrumbs;
 }
