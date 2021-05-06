@@ -211,9 +211,9 @@ class Menu_With_Description extends Walker_Nav_Menu {
     $full_description = $this->top_lvl_description($item, $depth);
     if (!empty($full_description)) {
       $output .= '<div><h2 class="menu-item-title">';
-      $output .= $full_description["name"];
+      $output .= esc_html($full_description["name"]);
       $output .= '</h2><p class="menu-item-description">';
-      $output .= $full_description["description"];
+      $output .= esc_html($full_description["description"]);
       $output .= '</p>';
     }
   }
