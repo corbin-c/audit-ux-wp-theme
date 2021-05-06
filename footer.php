@@ -12,19 +12,35 @@
 ?>
 
 	<footer id="colophon" class="site-footer">
-		<div class="site-info">
-			<a href="<?php echo esc_url( __( 'https://wordpress.org/', 'audit-ux' ) ); ?>">
-				<?php
-				/* translators: %s: CMS name, i.e. WordPress. */
-				printf( esc_html__( 'Proudly powered by %s', 'audit-ux' ), 'WordPress' );
-				?>
-			</a>
-			<span class="sep"> | </span>
-				<?php
-				/* translators: 1: Theme name, 2: Theme author. */
-				printf( esc_html__( 'Theme: %1$s by %2$s.', 'audit-ux' ), 'audit-ux', '<a href="http://underscores.me/">Underscores.me</a>' );
-				?>
-		</div><!-- .site-info -->
+    <section id="social"><h2>Suivez-nous sur les réseaux sociaux</h2>
+    <?php
+      wp_nav_menu(
+        array(
+          'theme_location' => 'footer-social',
+          'menu_id'        => 'footer-social',
+        )
+      );
+    ?>
+    </section>
+    <div class="site-info">
+      <?php the_custom_logo(); ?>
+      <?php 
+        if (is_active_sidebar( 'footer-1' )) {
+          dynamic_sidebar( 'footer-1' );
+        }
+      ?>
+      <section id="legal"><h2>Plus d'informations</h2>
+      <?php
+        wp_nav_menu(
+          array(
+            'theme_location' => 'footer-legal',
+            'menu_id'        => 'footer-legal',
+          )
+        );
+      ?>
+      </section>
+      <p id="copyright">© Copyright <?php echo date("Y"); ?> <?php bloginfo( 'name' ); ?>®</p>
+    </div>
 	</footer><!-- #colophon -->
 </div><!-- #page -->
 
