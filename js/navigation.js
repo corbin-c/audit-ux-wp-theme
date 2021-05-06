@@ -12,7 +12,7 @@
 		return;
 	}
 
-	const button = siteNavigation.getElementsByTagName( 'button' )[ 0 ];
+	const button = document.querySelector("button.menu-toggle");
 
 	// Return early if the button don't exist.
 	if ( 'undefined' === typeof button ) {
@@ -44,24 +44,21 @@
 
 	// Remove the .toggled class and set aria-expanded to false when the user clicks outside the navigation.
 	document.addEventListener( 'click', function( event ) {
-		const isClickInside = siteNavigation.contains( event.target );
-
+		const isClickInside = (siteNavigation.contains( event.target ) || (event.target == button));
 		if ( ! isClickInside ) {
 			siteNavigation.classList.remove( 'toggled' );
 			button.setAttribute( 'aria-expanded', 'false' );
 		}
 	} );
 
-	// Get all the link elements within the menu.
-	const links = menu.getElementsByTagName( 'a' );
+	// Get all the category title elements within the menu.
+	const h2 = menu.getElementsByTagName( 'h2' );
 
-	// Get all the link elements with children within the menu.
-	const linksWithChildren = menu.querySelectorAll( '.menu-item-has-children > a, .page_item_has_children > a' );
-
+	// Get all the top-level link elements with children within the menu.
+	const linksWithChildren = document.querySelectorAll( '#site-navigation > div > ul > .menu-item-has-children > a' );
 	// Toggle focus each time a menu link is focused or blurred.
-	for ( const link of links ) {
-		link.addEventListener( 'focus', toggleFocus, true );
-		link.addEventListener( 'blur', toggleFocus, true );
+	for ( const title of h2 ) {
+		title.addEventListener( 'click', toggleFocus, true );
 	}
 
 	// Toggle focus each time a menu link with children receive a touch event.
@@ -73,7 +70,7 @@
 	 * Sets or removes .focus class on an element.
 	 */
 	function toggleFocus() {
-		if ( event.type === 'focus' || event.type === 'blur' ) {
+		if ( event.type === 'focus' || event.target.tagName === 'H2' ) {
 			let self = this;
 			// Move up through the ancestors of the current link until we hit .nav-menu.
 			while ( ! self.classList.contains( 'nav-menu' ) ) {
