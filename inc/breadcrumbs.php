@@ -28,7 +28,7 @@ function get_item_name_in_menu($menu,$id) {
       break;
     }
   }
-  return $name;
+  return esc_html($name);
 }
 /**
  * builds the breadcrumbs element
@@ -37,16 +37,30 @@ function breadcrumbs() {
   if (is_home() || is_front_page()) {
     return; /* hide breadcrumbs on home page */
   }
-  global $post;
   $breadcrumbs = '<ol id="crumbs" itemscope itemtype="http://schema.org/BreadcrumbList">'; /* use microdata to improve machine readability */
   $breadcrumbs .= '<li itemprop="itemListElement" itemtype="http://schema.org/ListItem"><a itemprop="item" title="Retour à l’accueil" href="' . esc_url(home_url( '/' )) . '">Accueil</a><meta itemprop="name" content="' . get_bloginfo( 'name' ) . '" /><meta itemprop="position" content="1" /></li>';
-  $category = get_the_category($post->ID);
-  if (!empty($category)) { /* check if the current post has a parent category */
+  $position = 2;
+  if (is_category()) {
+    $category = get_the_category();
     $category = $category[0];
-    $category_name = get_item_name_in_menu("menu-1",$category->term_id);
-    $breadcrumbs .= '<li itemprop="itemListElement" itemtype="http://schema.org/ListItem"><a itemprop="item" title="Accéder au contenu de la catégorie : ' . $category->name . '" href="' . esc_url(get_category_link($category->term_id)) . '">' . $category_name . '</a><meta itemprop="name" content="' . $category_name . '" /><meta itemprop="position" content="2" /></li>';
+    $parent = $category->category_parent;
+    if ($parent !== 0) {
+      $parent_category = get_category($parent);
+      $breadcrumbs .= '<li itemprop="itemListElement" itemtype="http://schema.org/ListItem"><a itemprop="item" title="Accéder au contenu de la catégorie : ' . $parent_category->name . '" href="' . esc_url(get_category_link($parent_category->term_id)) . '">' . get_item_name_in_menu("menu-1",$parent_category->term_id) . '</a><meta itemprop="name" content="' . get_item_name_in_menu("menu-1",$parent_category->term_id) . '" /><meta itemprop="position" content="' . $position . '" /></li>';
+      $position++;
+    }
+    $breadcrumbs .= '<li itemprop="itemListElement" class="current" itemtype="http://schema.org/ListItem">' . get_item_name_in_menu("menu-1",$category->term_id) . '<meta itemprop="item" content="' . get_permalink($category->term_id) . '" /><meta itemprop="name" content="' . get_item_name_in_menu("menu-1",$category->term_id) . '" /><meta itemprop="position" content="' . $position . '" /></li>';
+  } else {
+    global $post;
+    $category = get_the_category($post->ID);
+    if (!empty($category)) { /* check if the current post has a parent category */
+      $category = $category[0];
+      $category_name = get_item_name_in_menu("menu-1",$category->term_id);
+      $breadcrumbs .= '<li itemprop="itemListElement" itemtype="http://schema.org/ListItem"><a itemprop="item" title="Accéder au contenu de la catégorie : ' . $category->name . '" href="' . esc_url(get_category_link($category->term_id)) . '">' . $category_name . '</a><meta itemprop="name" content="' . $category_name . '" /><meta itemprop="position" content="' . $position . '" /></li>';
+      $position++;
+    }
+    $breadcrumbs .= '<li itemprop="itemListElement" class="current" itemtype="http://schema.org/ListItem">' . get_item_name_in_menu("menu-1",$post->ID) . '<meta itemprop="item" content="' . get_permalink($post->ID) . '" /><meta itemprop="name" content="' . $post->post_title . '" /><meta itemprop="position" content="' . $position . '" /></li>';
   }
-  $breadcrumbs .= '<li itemprop="itemListElement" class="current" itemtype="http://schema.org/ListItem">' . get_item_name_in_menu("menu-1",$post->ID) . '<meta itemprop="item" content="' . $post->guid . '" /><meta itemprop="name" content="' . $post->post_title . '" /><meta itemprop="position" content="3" /></li>';
   $breadcrumbs .= '</ol>';
   echo $breadcrumbs;
 }
