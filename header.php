@@ -32,6 +32,7 @@
             <?php bloginfo( 'name' ); ?>
           </a>
         </h1>
+        <button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Menu', 'audit-ux' ); ?></button>
       </div>
       <nav id="site-contact" class="contact">
         <?php
@@ -44,7 +45,6 @@
         ?>
       </nav><!-- #site-contact -->
       <nav id="site-navigation" class="main-navigation">
-        <button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Menu', 'audit-ux' ); ?></button>
         <?php
         wp_nav_menu(
           array(
