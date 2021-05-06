@@ -250,6 +250,10 @@ Button to toggle menu on mobile
   width: 24px;
   flex: 1 0 auto;
 }
+.menu-toggle[aria-expanded="true"]:before {
+  background-position: 2px 0px;
+  background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPScyNCcgaGVpZ2h0PScyNCc+CjxkZWZzPgogICAgPGxpbmVhckdyYWRpZW50IGlkPSJnciIgeDE9IjAiIHgyPSIxIiB5MT0iMSIgeTI9IjAiPgogICAgICA8c3RvcCBvZmZzZXQ9IjAlIiBzdG9wLWNvbG9yPSIjMDI1NDRkIi8+CiAgICAgIDxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iIzAwNzI1NiIvPgogICAgPC9saW5lYXJHcmFkaWVudD4KPC9kZWZzPgo8cGF0aCBmaWxsPSJ1cmwoI2dyKSIgZD0iTSAxOS43NSAxLjk5IEwgMTcuNzYgMCBMIDkuODggNy44OSBMIDEuOTkgMCBMIDAgMS45OSBMIDcuODkgOS44OCBMIDAgMTcuNzYgTCAxLjk5IDE5Ljc1IEwgOS44OCAxMS44NyBMIDE3Ljc2IDE5Ljc1IEwgMTkuNzUgMTcuNzYgTCAxMS44NyA5Ljg4IEwgMTkuNzUgMS45OSBaIiAvPgo8L3N2Zz4K");
+}
 /*
 Breadcrumbs
 */
