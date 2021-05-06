@@ -43,10 +43,7 @@ function breadcrumbs() {
   $category = get_the_category($post->ID);
   if (!empty($category)) { /* check if the current post has a parent category */
     $category = $category[0];
-    $category_name = $category->description;
-    if (empty($category_name)) {
-      $category_name = $category->name;
-    }
+    $category_name = get_item_name_in_menu("menu-1",$category->term_id);
     $breadcrumbs .= '<li itemprop="itemListElement" itemtype="http://schema.org/ListItem"><a itemprop="item" title="Accéder au contenu de la catégorie : ' . $category->name . '" href="' . esc_url(get_category_link($category->term_id)) . '">' . $category_name . '</a><meta itemprop="name" content="' . $category_name . '" /><meta itemprop="position" content="2" /></li>';
   }
   $breadcrumbs .= '<li itemprop="itemListElement" class="current" itemtype="http://schema.org/ListItem">' . get_item_name_in_menu("menu-1",$post->ID) . '<meta itemprop="item" content="' . $post->guid . '" /><meta itemprop="name" content="' . $post->post_title . '" /><meta itemprop="position" content="3" /></li>';
