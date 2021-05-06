@@ -52,6 +52,8 @@ if ( ! function_exists( 'audit_ux_setup' ) ) :
       array(
         'menu-1' => esc_html__( 'Navigation', 'audit-ux' ),
         'contact-menu' => esc_html__( 'Contact', 'audit-ux' ),
+        'footer-social' => esc_html__( 'Réseaux sociaux', 'audit-ux' ),
+        'footer-legal' => esc_html__( 'Informations légales', 'audit-ux' ),
       )
     );
 
@@ -62,9 +64,6 @@ if ( ! function_exists( 'audit_ux_setup' ) ) :
     add_theme_support(
       'html5',
       array(
-        'search-form',
-        'comment-form',
-        'comment-list',
         'gallery',
         'caption',
         'style',
@@ -125,8 +124,8 @@ add_action( 'after_setup_theme', 'audit_ux_content_width', 0 );
 function audit_ux_widgets_init() {
   register_sidebar(
     array(
-      'name'          => esc_html__( 'Sidebar', 'audit-ux' ),
-      'id'            => 'sidebar-1',
+      'name'          => esc_html__( 'Footer', 'audit-ux' ),
+      'id'            => 'footer-1',
       'description'   => esc_html__( 'Add widgets here.', 'audit-ux' ),
       'before_widget' => '<section id="%1$s" class="widget %2$s">',
       'after_widget'  => '</section>',
