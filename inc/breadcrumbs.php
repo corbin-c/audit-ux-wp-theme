@@ -21,13 +21,13 @@
  *      found name
 **/
 function get_item_name_in_menu($menu,$id) {
-    $items = wp_get_nav_menu_items($menu);
-    foreach ($items as $item) {
-      if ($item->object_id == $id) {
-        $name = $item->title;
-        break;
-      }
+  $items = wp_get_nav_menu_items($menu);
+  foreach ($items as $item) {
+    if ($item->object_id == $id) {
+      $name = $item->title;
+      break;
     }
+  }
   return $name;
 }
 /**
@@ -53,4 +53,3 @@ function breadcrumbs() {
   $breadcrumbs .= '</ol>';
   echo $breadcrumbs;
 }
-?>

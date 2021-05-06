@@ -13,17 +13,17 @@
 <!doctype html>
 <html <?php language_attributes(); ?>>
 <head>
-	<meta charset="<?php bloginfo( 'charset' ); ?>">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<?php wp_head(); ?>
+  <meta charset="<?php bloginfo( 'charset' ); ?>">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <?php wp_head(); ?>
 </head>
 
 <body <?php body_class(); ?>>
 <?php wp_body_open(); ?>
 <div id="page" class="site">
-	<a class="skip-link screen-reader-text" href="#primary"><?php esc_html_e( 'Skip to content', 'audit-ux' ); ?></a>
+  <a class="skip-link screen-reader-text" href="#primary"><?php esc_html_e( 'Skip to content', 'audit-ux' ); ?></a>
 
-	<header id="masthead">
+  <header id="masthead">
     <div class="site-header">
       <div class="site-title">
         <?php the_custom_logo(); ?>
@@ -50,11 +50,11 @@
           array(
             'theme_location' => 'menu-1',
             'menu_id'        => 'primary-menu',
-            'walker'		 => new Menu_With_Description
+            'walker'     => new Menu_With_Description
           )
         );
         ?>
       </nav><!-- #site-navigation -->
     </div>
     <?php breadcrumbs(); ?><!-- breadcrumbs #crumbs -->
-	</header><!-- #masthead -->
+  </header><!-- #masthead -->

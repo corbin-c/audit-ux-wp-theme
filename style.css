@@ -22,6 +22,7 @@ Underscores is distributed under the terms of the GNU GPL v2 or later.
 }
 :root {
 /* Colors: */
+  --white: #ffffff;
   --light-green: #C9EBDC;
   --green: #029D77;
   --dark-green: #02544D;
@@ -140,6 +141,10 @@ body {
 .gallery-caption {
 	display: block;
 }
+
+/*--------------------------------------------------------------
+# Utilities
+--------------------------------------------------------------*/
 
 /* Accessibility
 --------------------------------------------- */
