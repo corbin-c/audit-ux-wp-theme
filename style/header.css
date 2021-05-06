@@ -5,6 +5,7 @@ Whole header layout
   min-height: 135px;
   width: 100%;
   position: fixed;
+  z-index: 2;
 }
 /*
 First row: logo, navigation & contact menu
