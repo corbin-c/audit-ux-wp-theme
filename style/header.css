@@ -15,7 +15,7 @@ First row: logo, navigation & contact menu
   display: flex;
   align-items: center;
   position: relative;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.1);
 }
 /*
 Logo
@@ -37,9 +37,50 @@ Contact menu
   order: 3;
 }
 #contact-menu {
+  min-width: 25vw;
   display: flex;
   list-style-type: none;
   justify-content: space-evenly;
+  align-items: center;
+}
+/*
+Contact CTA button
+*/
+#contact-menu a {
+  font-weight: bold;
+  text-align: center;
+  color: var(--dark-green);
+  font-size: 16px;
+  line-height: 45px;
+  vertical-align: center;
+  padding-left: 54.5px;
+  padding-right: 54.5px;
+  height: 45px;
+  display: inline-block;
+  background: transparent linear-gradient(256deg, #FFE26D 0%, #FFCB3B 100%) 0% 0% no-repeat padding-box;
+  border-radius: 23px;
+  box-shadow: 0px 3px 6px #00000033;
+}
+/* Telephone links are styled differently */
+#contact-menu a[href^="tel:"] {
+  color: var(--dark-gray);
+  height: auto;
+  padding: 0;
+  background: none;
+  border-radius: 0;
+  box-shadow: 0px 0px 0px rgba(0, 0, 0, 0);
+}
+/* phone icon added before phone links */
+#contact-menu a[href^="tel:"]:before {
+  content:"";
+  background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPScyNCcgaGVpZ2h0PScyNCc+CjxwYXRoIGZpbGw9IiMwMjlENzciIGQ9Ik0gMy4wMiA2LjQ5IEMgNC4yMiA4Ljg1IDYuMTUgMTAuNzcgOC41MSAxMS45OCBMIDEwLjM0IDEwLjE1IEMgMTAuNTcgOS45MiAxMC45IDkuODUgMTEuMTkgOS45NSBDIDEyLjEyIDEwLjI2IDEzLjEzIDEwLjQyIDE0LjE3IDEwLjQyIEMgMTQuNjIgMTAuNDIgMTUgMTAuOCAxNSAxMS4yNiBMIDE1IDE0LjE3IEMgMTUgMTQuNjIgMTQuNjIgMTUgMTQuMTcgMTUgQyA2LjM0IDE1IDAgOC42NiAwIDAuODMgQyAwIDAuMzcgMC4zNyAwIDAuODMgMCBMIDMuNzUgMCBDIDQuMjEgMCA0LjU4IDAuMzcgNC41OCAwLjgzIEMgNC41OCAxLjg3IDQuNzUgMi44NyA1LjA2IDMuODEgQyA1LjE1IDQuMSA1LjA4IDQuNDIgNC44NSA0LjY2IEwgMy4wMiA2LjQ5IFoiLz4KPC9zdmc+");
+  background-repeat: no-repeat;
+  display: inline-block;
+  width: 16px;
+  height: 15px;
+  margin-right: 3px;
+  position: relative;
+  top: 2px;
 }
 /*
 Nav
@@ -120,7 +161,7 @@ Nested content grid
   left: 0;
   background: var(--light-beige);
   padding: 34px 30px 34px 30px;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.1);  
+  box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.1);  
 }
 /*
 Category title & description
