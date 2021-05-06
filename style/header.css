@@ -15,6 +15,7 @@ First row: logo, navigation & contact menu
   display: flex;
   flex-wrap: wrap;
   justify-content: flex-start;
+  align-items: center;
   position: relative;
 }
 /*
