@@ -1,0 +1,197 @@
+footer#colophon {
+  width: 100%;
+  height: 670px;
+  position: relative;
+}
+#colophon * {
+  font-size: 16px;
+}
+#colophon h2 {
+  color: var(--dark-green);
+  font-size: 21px;
+  margin-bottom: 28px;
+}
+#colophon ul {
+  list-style-type: none;
+}
+/* first footer row with social links / matches the "footer-social" menu content */
+#colophon #social {
+  height: 106px;
+  width: 100%;
+  background: var(--light-beige);
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+#colophon #social h2 {
+  margin: 0;
+}
+#colophon #social li {
+  display: inline;
+}
+/* hide the link text to only show an icon */
+#colophon #social a {
+  height: 30px;
+  display: inline-block;
+  width: 30px;
+  overflow: hidden;
+  padding-left: 30px;
+  margin-left: 15px;
+  margin-top: 1px;
+  background-repeat: no-repeat;
+}
+/* this could be expanded to handle more social networks */
+#colophon #social a[href*="facebook.com"] {
+  background-image: url("./icons/fb.png");
+}
+#colophon #social a[href*="linkedin.com"] {
+  background-image: url("./icons/linkedin.png");
+}
+#colophon #social a[href*="twitter.com"] {
+  background-image: url("./icons/twitter.png");
+}
+/*
+Second footer row with custom logo, copyright, 2 widgets for about & contact, and the "footer-legal" menu
+*/
+#colophon .site-info {
+  width: 100%;
+  min-height: 564px;
+  background: var(--light-green);
+  display: grid;
+  grid-gap: 20px;
+  grid-auto-flow: column;
+  grid-template-rows: 0fr 0fr 0fr 0fr;
+  grid-template-columns: 1fr;  
+}
+#colophon #social, #colophon .site-info {
+  padding-left: 20px;
+  padding-right: 20px;
+}
+#colophon #copyright {
+  font-size: 16px;
+  line-height: 25px;
+  color: var(--gray);
+  text-align: center;
+}
+#colophon .custom-logo-link {
+  position: absolute;
+  margin-top: 22px;
+}
+/* about section */
+#colophon section:nth-child(2) h2 {
+  display: none;
+}
+#colophon section:nth-child(2) {
+  margin-top: 70px;
+  line-height: 25px;
+  color: var(--gray);
+  text-align: left;
+}
+#colophon section:nth-child(2) p {
+  margin-top: 20px;
+}
+#colophon section:nth-child(2) p:first-child {
+  margin-top: 0;
+}
+/* contact section */
+#colophon section:nth-child(3) {
+  background: var(--white);
+  padding-left: 50px;
+  box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.1); 
+  margin-left: 25px;
+  margin-right: 25px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+#colophon section:nth-child(3) li {
+  margin-bottom: 22px;
+}
+#colophon section:nth-child(3) li * {
+  color: var(--gray);
+  font-style: normal;
+  padding-left: 30px;
+  position: relative;
+}
+#colophon section:nth-child(3) li *:before {
+  background-repeat: no-repeat;
+  content: "";
+  width: 21px;
+  height: 21px;
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+#colophon section:nth-child(3) ul {
+  margin-bottom: 3px;
+}
+#colophon section:nth-child(3) button, a[role=button] {
+  color: var(--green);
+  border: 2px solid var(--green);
+  border-radius: 23px;
+  height: 45px;
+  text-align: center;
+  display: block;
+  font-weight: bold;
+  width: 235px;
+  cursor: pointer;
+  background: var(--white);
+}
+#colophon section:nth-child(3) address:before {
+  background-image: url("./icons/place.png");
+}
+#colophon section:nth-child(3) a[href^="tel:"]:before {
+  background-image: url("./icons/tel.png");
+}
+#colophon section:nth-child(3) a[href^="mailto:"]:before {
+  background-image: url("./icons/mail.png");
+}
+#colophon address {
+  line-height: 25px;
+}
+#colophon address:first-line {
+  font-weight: 600;
+}
+/* last section "more information" */
+#colophon section:nth-child(4) li {
+  margin-bottom: 22px;
+}
+#colophon section:nth-child(4) a {
+  text-decoration: underline;
+  color: var(--dark-green);
+}
+@media (min-width: 1280px) {
+  #colophon #social, #colophon .site-info {
+    padding-left: 18.4vw;
+    padding-right: 18.4vw;
+  }
+  #colophon .site-info {
+    grid-gap: 36px;
+    padding-top: 59.5px;
+    grid-auto-flow: column;
+    grid-template-rows: 1fr;
+    grid-template-columns: 1fr 1fr 1fr;  
+  }
+  #colophon section:nth-child(2) {
+    margin-top: 89px;
+  }
+  #colophon section:nth-child(2) p {
+    margin-top: 35px;
+  }
+  #colophon section:nth-child(3) {
+    margin-bottom: 60px;
+    border-radius: 4px;
+    padding-top: 32px;
+    padding-bottom: 0;
+    margin-left: 0px;
+    margin-right: 0px;
+  }
+  #colophon section:nth-child(4) {
+    padding-top: 32px;
+  }
+  #colophon #copyright {
+    position: absolute;
+    bottom: 88px;
+    text-align: left;
+  }
+}
