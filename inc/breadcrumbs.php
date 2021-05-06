@@ -41,8 +41,7 @@ function breadcrumbs() {
   $breadcrumbs .= '<li itemprop="itemListElement" itemtype="http://schema.org/ListItem"><a itemprop="item" title="Retour à l’accueil" href="' . esc_url(home_url( '/' )) . '">Accueil</a><meta itemprop="name" content="' . get_bloginfo( 'name' ) . '" /><meta itemprop="position" content="1" /></li>';
   $position = 2;
   if (is_category()) {
-    $category = get_the_category();
-    $category = $category[0];
+    $category = get_queried_object('cat');
     $parent = $category->category_parent;
     if ($parent !== 0) {
       $parent_category = get_category($parent);
