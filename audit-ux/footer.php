@@ -10,7 +10,18 @@
  */
 
 ?>
-
+  <?php 
+    function load_newsletter() {
+      if (is_home() || is_front_page()) {
+        return;
+      }
+      if (!is_active_sidebar( 'newsletter-1' )) {
+        return;
+      }
+      dynamic_sidebar( 'newsletter-1' );
+    }
+    load_newsletter();
+  ?>
 	<footer id="colophon" class="site-footer">
     <section id="social"><h2>Suivez-nous sur les réseaux sociaux</h2>
     <?php
