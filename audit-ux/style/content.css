@@ -1,21 +1,8 @@
+/*
+General layout
+*/
 #primary {
   padding-top: 135px;
-}
-#primary header {
-  height: 470px;
-  background: linear-gradient(256deg, #007256 0%, var(--dark-green) 100%);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-#primary header h1 {
-  font-size: 45px;
-  width: 796px;
-  line-height: 65px;
-  font-weight: bold;
-  color: var(--white);
-  margin-bottom: 110px;
-  text-align: center;
 }
 #primary h2 {
   font-size: 28px;
@@ -36,6 +23,7 @@
   width: 100%;
   height: auto;
 }
+/* style buttons as CTA */
 #primary .wp-block-button {
   font-weight: bold;
   text-align: center;
@@ -50,7 +38,27 @@
   border-radius: 23px;
   background: transparent linear-gradient(256deg, var(--light-yellow) 0%, var(--dark-yellow) 100%) 0% 0% no-repeat padding-box;
 }
-#primary header + .entry-content > .wp-block-buttons:first-child { /* if the post start with a button, style it like a fat CTA inside the header */
+/*
+header
+*/
+#primary header {
+  height: 470px;
+  background: linear-gradient(256deg, #007256 0%, var(--dark-green) 100%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#primary header h1 {
+  font-size: 45px;
+  width: 796px;
+  line-height: 65px;
+  font-weight: bold;
+  color: var(--white);
+  margin-bottom: 110px;
+  text-align: center;
+}
+/* if the post start with a button, style it like a fat CTA inside the header */
+#primary header + .entry-content > .wp-block-buttons:first-child { 
   display: flex;
   justify-content: center;
   align-items: center;
@@ -68,10 +76,16 @@
   border-radius: 28px;
   background: transparent linear-gradient(256deg, var(--light-yellow) 0%, var(--dark-yellow) 100%) 0% 0% no-repeat padding-box;
 }
+/*
+Reusable coordinates block
+*/
 #primary .coordinates {
   width: 380px;
   margin-left: 36px;
 }
+/*
+Media/Text block
+*/
 #primary .wp-block-media-text {
   width: 100%;
   padding-left: 18.4vw;
@@ -81,6 +95,9 @@
   grid-template-rows: 1fr;
   grid-template-columns: 1fr 1fr;
 }
+/*
+cover block
+*/
 #primary .wp-block-cover {
   width: calc(100% - 36.8vw);
   height: 260px;
