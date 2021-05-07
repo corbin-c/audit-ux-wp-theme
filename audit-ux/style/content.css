@@ -1,0 +1,50 @@
+#primary {
+  padding-top: 135px;
+}
+#primary header {
+  height: 470px;
+  background: linear-gradient(256deg, #007256 0%, var(--dark-green) 100%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#primary header h1 {
+  font-size: 45px;
+  width: 796px;
+  line-height: 65px;
+  font-weight: bold;
+  color: var(--white);
+  margin-bottom: 110px;
+  text-align: center;
+}
+#primary .wp-block-button {
+  font-weight: bold;
+  text-align: center;
+  color: var(--dark-green);
+  font-size: 16px;
+  line-height: 45px;
+  height: 45px;
+  cursor: pointer;
+  box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 23px;
+  background: transparent linear-gradient(256deg, var(--light-yellow) 0%, var(--dark-yellow) 100%) 0% 0% no-repeat padding-box;
+}
+#primary header + .entry-content > .wp-block-buttons:first-child { /* if the post start with a button, style it like a fat CTA inside the header */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  top: -171px;
+}
+#primary header + .entry-content > .wp-block-buttons:first-child .wp-block-button {
+  font-weight: bold;
+  text-align: center;
+  color: var(--dark-green);
+  font-size: 18px;
+  line-height: 55px;
+  height: 55px;
+  width: 300px;
+  border-radius: 28px;
+  background: transparent linear-gradient(256deg, var(--light-yellow) 0%, var(--dark-yellow) 100%) 0% 0% no-repeat padding-box;
+}
+
