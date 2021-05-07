@@ -22,9 +22,11 @@ class newsletter_widget extends WP_Widget {
 <p class="newsletter_desc"><?php echo esc_html($instance['description']); ?></p>
 <form method="POST" action="#">
   <label for="newsletter_email"><?php echo esc_html($instance['email_label']); ?></label>
-  <input type="email" id="newsletter_email" name="newsletter_email" placeholder="<?php echo esc_html($instance['email_placeholder']); ?>">
-  <label for="accept_email"><?php echo esc_html($instance['checkbox_label']); ?></label>
-  <input type="checkbox" id="accept_email" name="accept_email">
+  <input type="email" required id="newsletter_email" name="newsletter_email" placeholder="<?php echo esc_html($instance['email_placeholder']); ?>">
+  <label>
+    <input type="checkbox" required id="accept_email" name="accept_email">
+    <?php echo esc_html($instance['checkbox_label']); ?>
+  </label>
   <p><?php echo $instance['tos']; ?></p>
   <input type="submit" value="<?php echo esc_html($instance['button_label']); ?>">
 </form>
