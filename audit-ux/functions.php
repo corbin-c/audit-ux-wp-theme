@@ -126,7 +126,17 @@ function audit_ux_widgets_init() {
     array(
       'name'          => esc_html__( 'Footer', 'audit-ux' ),
       'id'            => 'footer-1',
-      'description'   => esc_html__( 'Add widgets here.', 'audit-ux' ),
+      'description'   => esc_html__( 'Add widgets here. They will appear in the footer', 'audit-ux' ),
+      'before_widget' => '<section id="%1$s" class="widget %2$s">',
+      'after_widget'  => '</section>',
+      'before_title'  => '<h2 class="widget-title">',
+      'after_title'   => '</h2>',
+    )
+  register_sidebar(
+    array(
+      'name'          => esc_html__( 'Newsletter', 'audit-ux' ),
+      'id'            => 'newsletter-1',
+      'description'   => esc_html__( 'Add widgets here. They will appear before the footer & be hidden on front page', 'audit-ux' ),
       'before_widget' => '<section id="%1$s" class="widget %2$s">',
       'after_widget'  => '</section>',
       'before_title'  => '<h2 class="widget-title">',
