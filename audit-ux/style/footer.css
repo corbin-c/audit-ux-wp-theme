@@ -98,6 +98,8 @@ Contact section
 */
 #colophon section:nth-child(3) {
   height: 100%;
+}
+#colophon .coordinates {
   background: var(--white);
 }
 /* last section "more information" */
