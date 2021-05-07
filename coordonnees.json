@@ -1,0 +1,5 @@
+{
+  "__file": "wp_block",
+  "title": "Nos coordonnées",
+  "content": "<!-- wp:group --><section class='coordinates'><h2>Nos coordonnées</h2><ul><li><a href='mailto:blbal'>contact@graciet.info</a></li><li><a href='tel:+33123456789'>+33 1 23 45 67 89</a></li><li><address>Agence de Poitiers<br>15 Avenue René Cassin<br>86691 Futuroscope Cedex</address> </li><li><address>Agence de Paris<br>15 Avenue René Cassin<br>86691 Futuroscope Cedex</address> </li></ul><button>Nous contacter</button></section><!-- /wp:group -->"
+}
