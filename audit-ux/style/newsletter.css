@@ -1,3 +1,6 @@
+/*
+Newsletter layout
+*/
 #page .widget_newsletter_widget {
   width: 100%;
   min-height: 280px;
@@ -8,6 +11,9 @@
   margin-top: 100px;
   margin-bottom: 98.5px;
 }
+/*
+Widget title
+*/
 #page .widget_newsletter_widget h2 {
   position: absolute;
   left: 18.4vw;
@@ -21,6 +27,9 @@
   font-weight: bold;
   color: var(--white);
 }
+/*
+NL description
+*/
 #page .widget_newsletter_widget .newsletter_desc {
   width: 50%;
   display: flex;
@@ -32,6 +41,9 @@
   line-height: 25px;
   background: linear-gradient(105deg, #007256 0%, var(--dark-green) 100%); 
 }
+/*
+NL form
+*/
 #page .widget_newsletter_widget form {
   width: 50%;
   background: var(--beige);
@@ -42,6 +54,9 @@
   justify-content: flex-start;
   flex-wrap: wrap;
 }
+/*
+chebkbox input
+*/
 #page .widget_newsletter_widget form label {
   order: 4;
   padding-left: 28px;
@@ -52,6 +67,9 @@
   margin-bottom: 10px;
   margin-top: 21.6px;
 }
+/*
+TOS paragraph
+*/
 #page .widget_newsletter_widget form p {
   order: 6;
   padding-left: 28px;
@@ -59,10 +77,16 @@
   font-size: 13px;
   line-height: 20px;
 }
+/*
+TOS link
+*/
 #page .widget_newsletter_widget form a {
   color: var(--dark-green);
   text-decoration: underline;
 }
+/*
+email label
+*/
 #page .widget_newsletter_widget form label:first-child:after {
   content: "*";
 }
@@ -77,6 +101,9 @@
   padding: 0;
   order: 1;
 }
+/*
+email input
+*/
 #page .widget_newsletter_widget input[type=email] {
   flex-grow: 1;
   margin-right: 17px;
@@ -88,6 +115,9 @@
   border-radius: 3px;
   order: 2;
 }
+/*
+checkbox
+*/
 #page .widget_newsletter_widget input[type=checkbox] {
   width: 18px;
   height: 18px;
@@ -98,6 +128,9 @@
   border: 2px solid #707070;
   border-radius: 3px;
 }
+/*
+submit button
+*/
 #page .widget_newsletter_widget input[type=submit] {
   order: 3;
   font-weight: bold;
