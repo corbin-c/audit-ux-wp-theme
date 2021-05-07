@@ -110,6 +110,10 @@ body {
 .coordinates * {
   font-size: 16px;
 }
+.coordinates a {
+  color: var(--gray) !important;
+  text-decoration: none !important;
+}
 .coordinates h2 {
   color: var(--dark-green);
   font-size: 21px;
@@ -117,13 +121,15 @@ body {
 }
 .coordinates {
   border-radius: 4px;
-  background: var(--beige);
-  padding-left: 50px;
+  background: var(--beige) !important;
   box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.1); 
-  padding-top: 32px;
-  padding-bottom: 40px;
+  padding-left: 50px !important;
+  padding-right: 0px !important;
+  padding-top: 32px !important;
+  padding-bottom: 40px !important;
   margin-left: 0px;
   margin-right: 0px;
+  background: var(--light-beige);
 }
 .coordinates ul {
   list-style-type: none;
@@ -160,7 +166,7 @@ body {
   font-weight: bold;
   width: 235px;
   cursor: pointer;
-  background: var(--white);
+  background: inherit;
 }
 .coordinates address:before {
   background-image: url("./style/icons/place.png");

@@ -100,7 +100,7 @@ Contact section
   height: 100%;
 }
 #colophon .coordinates {
-  background: var(--white);
+  background: var(--white) !important;
 }
 /* last section "more information" */
 #colophon section:nth-child(4) li {
