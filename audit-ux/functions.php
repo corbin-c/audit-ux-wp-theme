@@ -177,49 +177,47 @@ require get_template_directory() . '/inc/customizer.php';
 require get_template_directory() . '/inc/breadcrumbs.php';
 
 /**
+ * Reusable block widget.
+ */
+require get_template_directory() . '/inc/reuse-widget.php';
+
+/**
+ * Custom menu walker.
+ */
+require get_template_directory() . '/inc/walker.php';
+
+/**
  * Load Jetpack compatibility file.
  */
 if ( defined( 'JETPACK__VERSION' ) ) {
   require get_template_directory() . '/inc/jetpack.php';
 }
 /**
- * Extends Walker_Nav_Menu to include categories full title &
- * description for top-level categories and wrap it inside a container element
+ * Disable unused widgets
  */
-class Menu_With_Description extends Walker_Nav_Menu {
-  function top_lvl_description($item, $depth) {
-    if (depth > 0) {
-      return array();
-    }
-    $category_name = get_category($item->object_id)->name;
-    $category_description = $item->post_content;
-    if (empty($category_name)
-    || empty($category_description)
-    || is_null($category_name)
-    || ($category_description == " ")
-    ) {
-      return array();
-    }
-    return array(
-      "name" => $category_name,
-      "description" => $category_description
-    );
-  }
-  function start_el(&$output, $item, $depth, $args) {
-    parent::start_el($output, $item, $depth, $args);
-    $full_description = $this->top_lvl_description($item, $depth);
-    if (!empty($full_description)) {
-      $output .= '<div><h2 class="menu-item-title">';
-      $output .= esc_html($full_description["name"]);
-      $output .= '</h2><p class="menu-item-description">';
-      $output .= esc_html($full_description["description"]);
-      $output .= '</p>';
-    }
-  }
-  function end_el(&$output, $item, $depth, $args) {
-    if (!empty($full_description)) {
-      $output .= '</div>';
-    }
-    parent::end_el($output, $item, $depth, $args);
-  }
+function remove_default_widgets() {
+  unregister_widget( 'WP_Widget_Pages' );
+  unregister_widget( 'WP_Widget_Calendar' );
+  unregister_widget( 'WP_Widget_Archives' );
+  unregister_widget( 'WP_Widget_Links' );
+  unregister_widget( 'WP_Widget_Media_Audio' );
+  unregister_widget( 'WP_Widget_Media_Image' );
+  unregister_widget( 'WP_Widget_Media_Video' );
+  unregister_widget( 'WP_Widget_Media_Gallery' );
+  unregister_widget( 'WP_Widget_Meta' );
+  unregister_widget( 'WP_Widget_Search' );
+  unregister_widget( 'WP_Widget_Categories' );
+  unregister_widget( 'WP_Widget_Recent_Posts' );
+  unregister_widget( 'WP_Widget_Recent_Comments' );
+  unregister_widget( 'WP_Widget_RSS' );
+  unregister_widget( 'WP_Widget_Tag_Cloud' );
+  unregister_widget( 'WP_Nav_Menu_Widget' );
 }
+add_action( 'widgets_init', 'remove_default_widgets' );
+/**
+ * We don't want Gutenberg styles
+ */
+function remove_guntenberg_css(){
+  wp_dequeue_style('wp-block-library');
+}
+add_action( 'wp_enqueue_scripts', 'remove_guntenberg_css' );
