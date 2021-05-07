@@ -193,6 +193,11 @@ require get_template_directory() . '/inc/breadcrumbs.php';
 require get_template_directory() . '/inc/reuse-widget.php';
 
 /**
+ * Newsletter widget.
+ */
+require get_template_directory() . '/inc/newsletter-widget.php';
+
+/**
  * Custom menu walker.
  */
 require get_template_directory() . '/inc/walker.php';
